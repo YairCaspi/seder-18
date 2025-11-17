@@ -59,4 +59,23 @@ function flatten(obj, prefix = "") {
   return res;
 }
 
-module.exports = { loadTranslations, saveTranslations, getAllKeys };
+function unflatten(obj) {
+  const result = {};
+  for (const key in obj) {
+    const parts = key.split(".");
+    let curr = result;
+    for (let i = 0; i < parts.length; i++) {
+      const part = parts[i];
+      if (i === parts.length - 1) {
+        curr[part] = obj[key];
+      } else {
+        if (!curr[part] || typeof curr[part] !== "object") curr[part] = {};
+        curr = curr[part];
+      }
+    }
+  }
+  return result;
+}
+
+
+module.exports = { loadTranslations, saveTranslations, getAllKeys, unflatten };

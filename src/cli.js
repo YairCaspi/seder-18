@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 const { exec } = require("child_process");
-const { loadTranslations, getAllKeys, saveTranslations } = require("./translations");
+const { loadTranslations, getAllKeys, saveTranslations, unflatten } = require("./translations");
 
 // Parse CLI args
 const argv = require("yargs/yargs")(process.argv.slice(2))
@@ -86,7 +86,16 @@ app.post("/api/save", (req, res) => {
     return res.status(400).json({ ok: false, error: "Missing translations in body" });
   }
   try {
-    saveTranslations(translationsDir, translations);
+    const unflattenedTranslations = {};
+    for (const lang in translations) {
+      unflattenedTranslations[lang] = unflatten(translations[lang]);
+    }
+
+    for (const lang in unflattenedTranslations) {
+      const filePath = path.join(translationsDir, `${lang}.json`);
+      fs.writeFileSync(filePath, JSON.stringify(unflattenedTranslations[lang], null, 2));
+    }
+
     res.json({ ok: true });
   } catch (err) {
     console.error("Failed to save:", err);
