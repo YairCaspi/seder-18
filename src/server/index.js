@@ -26,8 +26,6 @@ function startServer(translationsDir, mainLang = "en", port = 3124) {
   app.use(express.static(frontendDist));
 
   app.get("/ui", (req, res) => {
-    console.log('hello');
-
     res.sendFile(path.join(frontendDist, 'index.html'));
   })
 

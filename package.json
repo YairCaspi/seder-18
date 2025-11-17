@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node src/cli.js",
-    "start:example": "node src/cli.js --dir ./src/example --main en",
+    "start:example": "node src/cli.js --dir ./src/example --main en --ignore fr.json",
     "build-ui": "cd src/frontend && npm run build"
   },
   "keywords": [],

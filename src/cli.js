@@ -22,6 +22,10 @@ const argv = require("yargs/yargs")(process.argv.slice(2))
     default: "en",
     describe: "Primary language to show first",
   })
+  .option("ignore", {
+    type: "string",
+    describe: "Comma-separated list of translation files to ignore",
+  })
   .help()
   .argv;
 
@@ -49,6 +53,9 @@ if (!fs.existsSync(translationsDir)) {
   process.exit(1);
 }
 
+const ignoreFiles = argv.ignore ? argv.ignore.split(",").map(f => f.trim()) : [];
+if (ignoreFiles.length) console.log("🚫 Ignoring files:", ignoreFiles);
+
 console.log(`📁 Using translations directory: ${translationsDir}`);
 console.log(`🗣 Main language: ${primaryLanguage}`);
 console.log(`🚀 Starting backend server...`);
@@ -71,9 +78,9 @@ app.use(express.static(frontendDist));
 // Endpoint: Get all translations
 // ============================================
 app.get("/api/translations", (req, res) => {
-  const translations = loadTranslations(translationsDir); // object: lang -> { key: value }
+  const translations = loadTranslations(translationsDir, ignoreFiles); // pass ignore list
   const allKeys = getAllKeys(translations);
-  const mainLang = req.query.main || "en"; // אם רוצים לשאול מהשורה
+  const mainLang = req.query.main || primaryLanguage;
   res.json({ translations, allKeys, mainLang });
 });
 
@@ -93,6 +100,7 @@ app.post("/api/save", (req, res) => {
 
     for (const lang in unflattenedTranslations) {
       const filePath = path.join(translationsDir, `${lang}.json`);
+      if (ignoreFiles.includes(`${lang}.json`)) continue; // skip ignored files
       fs.writeFileSync(filePath, JSON.stringify(unflattenedTranslations[lang], null, 2));
     }
 
