@@ -51,7 +51,7 @@ function loadTranslationFile(filePath) {
  */
 function loadTranslations(dir, ignoreFiles = []) {
   const files = fs.readdirSync(dir).filter(f =>
-    !ignoreFiles.includes(f) && f.endsWith(".json") || f.endsWith(".js") || f.endsWith(".ts")
+    !ignoreFiles.includes(f) && (f.endsWith(".json") || f.endsWith(".js") || f.endsWith(".ts"))
   );
 
   const langs = {};

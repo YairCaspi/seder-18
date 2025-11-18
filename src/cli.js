@@ -68,12 +68,6 @@ const frontendDist = path.join(__dirname, "frontend", "dist");
 // Serve UI
 app.use(express.static(frontendDist));
 
-// app.get("/", (req, res) => {
-//   console.log('hello');
-
-//   res.sendFile(path.join(frontendDist, 'index.html'));
-// });
-
 // ============================================
 // Endpoint: Get all translations
 // ============================================
