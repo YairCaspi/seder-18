@@ -11,6 +11,13 @@
     "start:example": "node src/cli.js --dir ./src/example --main en --ignore fr.json",
     "build": "cd src/frontend && npm run build"
   },
+  "files": [
+    "src/frontend/dist",
+    "src/cli.js",
+    "src/translations.js",
+    "package.json",
+    "README.md"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
