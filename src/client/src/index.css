@@ -1,10 +1,4 @@
-/* frontend/src/index.css */
-/* html,body,#root { height:100%; margin:0; font-family: Inter, Arial, sans-serif; }
-button { cursor:pointer; }
-input { font-family: inherit; }
- */
-
-/* :root {
+:root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -71,4 +65,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-} */
+}
