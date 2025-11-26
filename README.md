@@ -1,4 +1,4 @@
-i18n-seder
+# i18n-seder
 
 A lightweight, zero‑config translation management UI for developers working with JSON/i18n files.
 
@@ -57,7 +57,7 @@ Display all languages + keys in an editable table
 
 Save changes directly back into your translation JSON files
 
-📁 Folder Structure
+### 📁 Folder Structure
 
 You can pass any folder containing translation JSON files.
 
@@ -71,7 +71,7 @@ locales/
 
 i18n-seder will detect them automatically.
 
-⚙️ CLI
+### ⚙️ CLI
 
 Basic usage:
 
@@ -83,7 +83,7 @@ seder ./locales
 seder ./src/i18n
 seder ../shared/translations
 
-🧩 How It Works
+### 🧩 How It Works
 
 Reads all JSON translation files
 
