@@ -1,10 +1,18 @@
 {
   "name": "i18n-seder",
   "version": "1.0.0",
-  "description": "CLI tool to manage JSON translations",
+  "description": "A lightweight local JSON-based translation editor for i18n projects. Opens a local UI to manage and edit your translation files directly from your project.",
   "main": "src/cli.js",
   "bin": {
     "seder": "./src/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/USERNAME/i18n-seder.git"
+  },
+  "homepage": "https://github.com/USERNAME/i18n-seder#readme",
+  "bugs": {
+    "url": "https://github.com/USERNAME/i18n-seder/issues"
   },
   "scripts": {
     "start": "node src/cli.js --dir ./src/example",
@@ -20,10 +28,20 @@
     "README.md"
   ],
   "keywords": [
-    "i18n",
-    "translations",
-    "editor"
-  ],
+  "i18n",
+  "translation",
+  "internationalization",
+  "localization",
+  "editor",
+  "translations editor",
+  "json translations",
+  "i18n tool",
+  "translate",
+  "react",
+  "vue",
+  "seder",
+  "seder18"
+],
   "author": "",
   "license": "MIT",
   "type": "commonjs",

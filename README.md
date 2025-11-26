@@ -19,7 +19,7 @@ i18n-seder lets you browse, search, edit, and save your translation files throug
 🔧 CLI tool — run it from your project with zero setup
 
 ## 📸 Screenshot
-
+![screenshot](assets/Screenshot.png)
 
 ## 📦 Installation
 
