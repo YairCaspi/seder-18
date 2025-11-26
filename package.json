@@ -7,14 +7,15 @@
     "seder": "./src/cli.js"
   },
   "scripts": {
-    "start": "node src/cli.js",
+    "start": "node src/cli.js --dir ./src/example",
     "start:example": "node src/cli.js --dir ./src/example --main en --ignore fr.json",
-    "build": "cd src/frontend && npm run build"
+    "build": "cd src/client && npm run build"
   },
   "files": [
-    "src/frontend/dist",
+    "src/client/dist",
     "src/cli.js",
-    "src/translations.js",
+    "src/backend/index.js",
+    "src/backend/translations.js",
     "package.json",
     "README.md"
   ],

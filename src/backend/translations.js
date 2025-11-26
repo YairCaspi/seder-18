@@ -49,10 +49,8 @@ function loadTranslationFile(filePath) {
  * Supports JSON, JS, TS.
  * Returns { langCode: { key: value } }
  */
-function loadTranslations(dir, ignoreFiles = []) {
-  const files = fs.readdirSync(dir).filter(f =>
-    !ignoreFiles.includes(f) && f.endsWith(".json")
-  );
+function loadTranslations(dir) {
+  const files = fs.readdirSync(dir).filter(f => f.endsWith(".json"));
 
   const langs = {};
   for (const file of files) {
